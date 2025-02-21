@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coffee Shop</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .full-screen-bg {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .jumbotron-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .dark-mode .navbar,
+        .dark-mode .footer {
+            background-color: #1f1f1f !important;
+        }
+
+        .dark-mode .navbar-light .navbar-brand,
+        .dark-mode .navbar-light .nav-link {
+            color: #ffffff;
+        }
+
+        .dark-mode .jumbotron-overlay .container h1,
+        .dark-mode .jumbotron-overlay .container p,
+        .dark-mode .jumbotron-overlay .container a {
+            color: #e0e0e0 !important;
+        }
+
+        .custom-control.custom-switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-control-label {
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+
+        .custom-control-input:checked~.custom-control-label::before {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+
+        .custom-control-input:focus~.custom-control-label::before {
+            box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25);
+        }
+
+        .carousel-item img {
+            max-height: 400px;
+            object-fit: scale-down;
+        }
+
+        .menu-row {
+            overflow: auto;
+        }
+
+        .menu-cards-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .menu-cards {
+            display: inline-flex;
+            gap: 1rem;
+        }
+
+        .menu-card {
+            flex: 0 0 auto;
+            width: 300px;
+        }
+
+        .menu-card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .dark-mode .card {
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .card .card-title,
+        .dark-mode .card .card-text {
+            color: #e0e0e0;
+        }
+
+        .dark-mode .btn-primary {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+
+        .dark-mode .btn-primary:hover {
+            background-color: #495057;
+            border-color: #495057;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <a class="navbar-brand" href="#">The Coffee Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="toggle-dark-mode">
+                        <label class="custom-control-label" for="toggle-dark-mode">
+                            <i class="fas fa-moon" id="dark-icon"></i>
+                            <i class="fas fa-sun" id="light-icon" style="display: none;"></i>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0" id="home">
+        <div class="full-screen-bg" style="background-image: url('images/coffee_shop.jpg');">
+            <div class="jumbotron-overlay">
+                <div class="container text-center text-white">
+                    <h1 class="display-4">Welcome to The Coffee Shop!</h1>
+                    <p class="lead">Your favorite place to enjoy a cup of coffee.</br>Visit us to experience the best coffee in town.</p>
+                    <a class="btn btn-dark btn-lg" href="#about" role="button">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5" id="menu">
+        <div class="row menu-row">
+            <div class="col-md-12">
+                <h2 class="mb-3">Our Menu</h2>
+                <div class="menu-cards-container">
+                    <div class="menu-cards">
+                        <div class="card menu-card">
+                            <img src="images/americano.jpg" class="card-img-top" alt="Americano">
+                            <div class="card-body">
+                                <h5 class="card-title">Americano</h5>
+                                <p class="card-text">$3.00</p>
+                            </div>
+                        </div>
+                        <div class="card menu-card">
+                            <img src="images/espresso.jpg" class="card-img-top" alt="Espresso">
+                            <div class="card-body">
+                                <h5 class="card-title">Espresso</h5>
+                                <p class="card-text">$2.50</p>
+                            </div>
+                        </div>
+                        <div class="card menu-card">
+                            <img src="images/latte.jpg" class="card-img-top" alt="Latte">
+                            <div class="card-body">
+                                <h5 class="card-title">Latte</h5>
+                                <p class="card-text">$4.00</p>
+                            </div>
+                        </div>
+                        <div class="card menu-card">
+                            <img src="images/croissant.jpg" class="card-img-top" alt="Croissant">
+                            <div class="card-body">
+                                <h5 class="card-title">Croissant</h5>
+                                <p class="card-text">$2.00</p>
+                            </div>
+                        </div>
+                        <div class="card menu-card">
+                            <img src="images/sandwich.jpg" class="card-img-top" alt="Sandwich">
+                            <div class="card-body">
+                                <h5 class="card-title">Sandwich</h5>
+                                <p class="card-text">$5.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5 bg-light" id="about">
+        <div class="container">
+            <h2 class="mb-3">About Us</h2>
+            <p>Learn more about our story and values. We are a locally owned coffee shop dedicated to providing the best
+                coffee experience. Our beans are sourced from sustainable farms, and we take pride in our skilled baristas
+                who craft each cup with care.</p>
+            <p>Founded in 2010, The Coffee Shop has been a staple in the community, providing a cozy atmosphere for coffee
+                lovers to gather and enjoy their favorite brews. Our mission is to deliver exceptional coffee and create a
+                welcoming space for everyone.</p>
+            <p>We believe in sustainability and ethical sourcing, ensuring that our coffee beans are sourced from farms that
+                prioritize environmental and social responsibility. Our baristas are passionate about coffee and are always
+                eager to share their knowledge and craft with our customers.</p>
+        </div>
+    </div>
+
+    <div class="container py-5" id="contact">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="mb-3">Contact</h2>
+                <p>Get in touch with us for any queries or feedback. We value our customers and are always here to help.
+                    Whether you have a question about our menu, want to provide feedback, or just want to say hello,
+                    we'd love to hear from you.</p>
+                <ul>
+                    <li>Email: info@thecoffeeshop.com</li>
+                    <li>Phone: (123) 456-7890</li>
+                    <li>Address: 123 Coffee St, Coffee City, CO 12345</li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-right">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">© 2025 The Coffee Shop. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('toggle-dark-mode').addEventListener('change', function () {
+            document.body.classList.toggle('dark-mode');
+            var navbar = document.getElementById('navbar');
+            var darkIcon = document.getElementById('dark-icon');
+            var lightIcon = document.getElementById('light-icon');
+            if (document.body.classList.contains('dark-mode')) {
+                navbar.classList.remove('navbar-light');
+                navbar.classList.add('navbar-dark');
+                navbar.classList.add('bg-dark');
+                darkIcon.style.display = 'none';
+                lightIcon.style.display = 'inline';
+            } else {
+                navbar.classList.remove('navbar-dark');
+                navbar.classList.add('navbar-light');
+                navbar.classList.remove('bg-dark');
+                darkIcon.style.display = 'inline';
+                lightIcon.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
